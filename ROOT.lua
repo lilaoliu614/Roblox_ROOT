@@ -1,6 +1,5 @@
 --[[
     ROOT精灵 v10.0 - 正式发布版
-    现代化UI设计 + 40+功能
 ]]
 
 -- ==================== 服务引用 ====================
@@ -592,7 +591,8 @@ local function SetupFly()
             local cf = Vector3.new(camera.CFrame.LookVector.X,0,camera.CFrame.LookVector.Z); if cf.Magnitude>0 then cf=cf.Unit else cf=Vector3.new(0,0,-1) end
             local cr = Vector3.new(camera.CFrame.RightVector.X,0,camera.CFrame.RightVector.Z); if cr.Magnitude>0 then cr=cr.Unit else cr=Vector3.new(1,0,0) end
             dir = (cf * (-moveDir.Z) + cr * moveDir.X); if dir.Magnitude>0 then dir=dir.Unit end
-        end        if UserInputService:IsKeyDown(Enum.KeyCode.Space) or UserInputService:IsKeyDown(Enum.KeyCode.ButtonA) then dir+=Vector3.new(0,1,0) end
+        end
+        if UserInputService:IsKeyDown(Enum.KeyCode.Space) or UserInputService:IsKeyDown(Enum.KeyCode.ButtonA) then dir+=Vector3.new(0,1,0) end
         if UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then dir-=Vector3.new(0,1,0) end
         vel.Velocity = dir.Magnitude>0 and dir.Unit*State.FlySpeed or Vector3.zero
     end)
@@ -726,7 +726,7 @@ local Pages = {
     ["关于"] = function()
         local info = Instance.new("TextLabel")
         info.Parent = ContentScroll
-        info.Size = UDim2.new(1, 0, 0, 250)
+        info.Size = UDim2.new(1, 0, 0, 200)
         info.BackgroundColor3 = UI.Surface2
         info.BorderSizePixel = 0
         info.Text = [[ROOT精灵 v10.0
